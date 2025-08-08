@@ -57,12 +57,13 @@ body {
     gap: 0 65px;
     font-weight: 400;
     font-size: 18px;
-    margin-left: 85px;
+    margin-left: 40px;
     z-index: 3;
 }
 
 .menu__link {
     position: relative;
+    padding: 4px;
 }
 
 .menu__link::after {
@@ -120,21 +121,34 @@ body {
 .user-actions {
     display: flex;
     align-items: center;
-    gap: 0 20px;
 }
 
-.user-actions__item-seacrch {
+
+
+.user-actions__item+.user-actions__item {
+    margin-left: 8px;
+}
+
+.user-actions__item.user-actions__item-seacrch {
     margin-left: 80px;
 }
 
-.user-actions__link img {
-    transition: scale 200ms linear;
+
+.user-actions__link {
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.user-actions__link img:hover {
-    scale: 1.2;
-    transition: scale 200ms linear;
+
+.user-actions__link:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
+
+.user-actions__link img:hover {}
 
 .top {
     background-image: url("../images/top.jpg");
@@ -281,7 +295,9 @@ body {
 
 .tea__img {
     width: 270px;
-    height: 180px;
+    /* height: 180px; */
+    height: auto;
+    object-position: center;
     object-fit: cover;
 }
 
@@ -308,8 +324,12 @@ body {
     justify-self: start;
 }
 
-.tea__btn:hover {
-    text-decoration: underline;
+.tea__btn img {
+    transition: transform 250ms ease;
+}
+
+.tea__btn:hover img {
+    transform: translateX(16px);
 }
 
 .tea__btn span {
@@ -510,6 +530,10 @@ body {
     font-size: 16px;
 }
 
+.footer__products-link:hover {
+    text-decoration: underline;
+}
+
 .footer__company {
     justify-self: end;
 }
@@ -523,6 +547,10 @@ body {
 .footer__company-link {
     font-weight: 300;
     font-size: 16px;
+}
+
+.footer__company-link:hover {
+    text-decoration: underline;
 }
 
 .footer__item.footer__quote {
@@ -598,12 +626,12 @@ body {
 }
 
 .footer__socials-img {
-    transition: scale 300ms linear;
+    cursor: pointer;
+    opacity: 0.7;
 }
 
 .footer__socials-img:hover {
-    scale: 1.15;
-    transition: scale 200ms linear;
+    opacity: 1;
 }
 
 .footer__down {
@@ -628,11 +656,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: scale 200ms linear;
-}
-
-.footer__down-link:hover {
-    scale: 1.2;
     transition: scale 200ms linear;
 }
 
@@ -675,6 +698,12 @@ body {
 
     .prioritise__item {
         flex-basis: 294px;
+    }
+
+    .footer__items {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 32px;
+        margin-bottom: 55px;
     }
 
 }
@@ -795,6 +824,18 @@ body {
 
     }
 
+    .menu__list {
+        gap: 0;
+        justify-content: space-between;
+        margin-left: 0;
+    }
+
+    .menu {
+        margin-inline: 32px;
+        width: 100%;
+
+    }
+
 
 }
 
@@ -813,7 +854,17 @@ body {
     }
 
     .logo {
-        margin-inline: auto 154px;
+        margin-inline: 0;
+        text-align: center;
+    }
+
+    .menu {
+        width: auto;
+        margin-left: 0;
+    }
+
+    .header__inner>* {
+        width: 33.33%;
     }
 
     .menu__list {
@@ -912,7 +963,7 @@ body {
 @media (max-width: 768px) {
 
     .header__inner {
-        padding-inline: 64px;
+        /* padding-inline: 64px; */
     }
 
     .blockquote__text {
@@ -1112,6 +1163,15 @@ body {
         margin: 0 auto;
     }
 
+    .tea__item {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .tea__name {
+        text-wrap: balance;
+    }
+
 }
 
 @media (max-width: 513px) {
@@ -1132,7 +1192,11 @@ body {
     }
 
     .logo {
-        margin-inline: 0 80px;
+        /* margin-inline: 0 80px; */
+    }
+
+    .user-actions__item.user-actions__item-seacrch {
+        margin-left: 8px;
     }
 
     .logo img {
@@ -1183,7 +1247,7 @@ body {
     }
 
     .tea__title {
-        font-size: 24px;
+        font-size: 28px;
         margin-bottom: 30px;
     }
 
@@ -1220,6 +1284,8 @@ body {
 
     .tea__name {
         margin-bottom: 5px;
+        font-size: 22px;
+        text-wrap: initial;
     }
 
     .tea__text {
@@ -1269,10 +1335,18 @@ body {
     .footer__items {
         margin-bottom: 50px;
     }
+
+    .header__inner>* {
+        width: auto;
+    }
 }
 
 
 @media (max-width: 360px) {
+
+    .menu__list {
+        width: 100%;
+    }
 
 
     .logo {
